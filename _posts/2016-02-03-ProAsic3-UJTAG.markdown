@@ -7,7 +7,7 @@ categories: ProASIC3e jtag microsemi
 
 Comecei a trabalhar com o FPGA ProASIC3e da Microsemi (antiga Actel) para rodar alguns testes de radiação. Como não é possível realizar a leitura da memória de configuração, fomos obrigados a encontrar uma alternativa para ler dados dentro do FPGA em tempo de execução.
 
-Alguns FPGAs da Microsemi oferecem uma hard-macro que realiza a interface direta usando o JTAG, chamada UJTAG. Como exemplo existe o application note que mostra como usar ([AC227][ac227]). Porem este é para os FPGAs da linha ProASIC3plus.
+Alguns FPGAs da Microsemi oferecem uma hard-macro que realiza a interface direta usando o JTAG, chamada UJTAG. Como exemplo existe o application note que mostra como usar ([AC227][ac227]). Porém este é para os FPGAs da linha ProASIC3plus.
 
 Após algumas tentativas e modificações no código fornecido, foi obtido sucesso na comunicação. No exemplo é apresentado como realizar a escrita em FF dentro do FPGA.
 
