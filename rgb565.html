@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RGB565 to RGB888 Converter</title>
+</head>
+<body>
+    <h1>RGB565 to RGB888 Converter</h1>
+    <p>Enter an RGB565 value (in decimal) and click "Convert" to see the RGB888 result.</p>
+
+    <input type="text" id="rgb565Input" placeholder="Enter RGB565 value" />
+    <button onclick="convertRGB565ToRGB888()">Convert</button>
+
+    <p>
+    RGB888 Result:<br />
+    <div id="rgb888Result"></div><br />
+    Resulting color: <div id="resultingColor" style="width: 100px; height: 100px; border: 1px solid black;"></div>
+    </p>
+
+    <script>
+        function convertRGB565ToRGB888() {
+            const rgb565Input = document.getElementById("rgb565Input").value;
+            const rgb565 = parseInt(rgb565Input);
+
+            const r5 = (rgb565 >> 11);
+            const g6 = (rgb565 >> 5) & 0x3F;
+            const b5 = rgb565 & 0x1F;
+
+            const r8 = Math.round(r5 / 31 * 255);
+            const g8 = Math.round(g6 / 63 * 255);
+            const b8 = Math.round(b5 / 31 * 255);
+
+            const rgb888 = `RGB(${r8}, ${g8}, ${b8})`;
+            const rgb888hex = `#${r8.toString(16)}${g8.toString(16)}${b8.toString(16)}`;
+            document.getElementById("rgb888Result").textContent = rgb888 + " - (" + rgb888hex + ")";
+            const divColor = document.getElementById("resultingColor");
+            divColor.style.backgroundColor = rgb888;
+        }
+    </script>
+</body>
+</html>
+
